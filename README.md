@@ -1,9 +1,9 @@
 # WelcomeHome
 
-Functionality:
+### Functionality:
 - input location first, then show map with the options of things to do
 
-Features:
+### Features:
 - DMV
 - groceries
 - urgent care
