@@ -1,60 +1,89 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+  <head>
+    <title>Welcome Home</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+    <style>
+      #map {
+        height: 60%;
+      }
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="floating-panel">
+      <input id="address" type="textbox" value="New York City, New York">
+      <input id="submit" type="button" value="Go">
+    </div>
+    <div id="map"></div>
+    <script>
+      var map;
+      var service;
+      var infowindow;
+      var hospital = document.getElementById('#hospital');
 
-<head>
-	<meta charset="utf-8" />
-	<title>Welcome Home</title>
+      function initMap() {
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 10,
+          center: {lat: 40.7128, lng: -74.0060}
+        });
+        var geocoder = new google.maps.Geocoder();
 
-	<!--import font from google fonts-->
+        document.getElementById('submit').addEventListener('click', function() {
+          geocodeAddress(geocoder, map);
+        });
 
-	<!--import custom css-->
-	<link rel="stylesheet" href="main.css"> 
+        infowindow = new google.maps.InfoWindow();
 
-	<!--development version of vue-->
-	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        var request = {
+          query: 'Museum of Modern Art',
+        };
 
-	<!--import bootstrap-->
-	<link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap/dist/css/bootstrap.min.css" />
-	<link type="text/css" rel="stylesheet" href="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.css" />
+        service = new google.maps.places.PlacesService(map);
 
-	<!--import jquery-->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        service.findPlaceFromQuery(request, function(results, status) {
+          if (status === google.maps.places.PlacesServiceStatus.OK) {
+            for (var i = 0; i < results.length; i++) {
+              createMarker(results[i]);
+              hospital.querySelector.innerHTML = results[i].name;
+            }
+          }
+        });
+      }
 
-	<!--bootstrap vue-->
-	<script src="//unpkg.com/babel-polyfill@latest/dist/polyfill.min.js"></script>
-	<script src="//unpkg.com/bootstrap-vue@latest/dist/bootstrap-vue.js"></script>
+      function createMarker(place) {
+        var marker = new google.maps.Marker({
+          map: map,
+          position: place.geometry.location
+        });
 
-	<!--import google maps with callback function to get location initially-->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjHH561CCJ27qQ4CRfhT1SBLRBK4ueTmo&callback=app.getLocation" async defer></script>
-</head>
+        google.maps.event.addListener(marker, 'click', function() {
+          infowindow.setContent(place.name);
+          infowindow.open(map, this);
+        });
+      }
 
-<body>
-	<div id="root">
-		<h1 class="in-from-top">Welcome Home</h1>
-
-		<!--map div-->
-		<div id="map" style="width:50%;height:40rem;float:right;"></div>
-
-		<!--input and button-->
-		<div id="inputAndButton">
-			<br>
-			<b-input-group prepend="Zip Code">
-				<b-form-input type="text" v-model="userZip"></b-form-input>
-				<b-input-group-append>
-					<b-btn id="searchButton" variant="outline-success" @click=search>Go</b-btn>
-				</b-input-group-append>
-			</b-input-group>
-		</div>
-
-		<div id="results">
-			<!--VUE components-->
-			<place-name v-bind:name="result.name" v-bind:key="result.name"></place-name>
-		</div>
-
-	</div>
-
-	<script src="src/main.js"></script>
-	<script src="src/vue-component.js"></script>
-</body>
-
+      function geocodeAddress(geocoder, resultsMap) {
+        var address = document.getElementById('address').value;
+        geocoder.geocode({'address': address}, function(results, status) {
+          if (status === 'OK') {
+            resultsMap.setCenter(results[0].geometry.location);
+            var marker = new google.maps.Marker({
+              map: resultsMap,
+              position: results[0].geometry.location
+            });
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+      }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjHH561CCJ27qQ4CRfhT1SBLRBK4ueTmo&libraries=places&callback=initMap" async defer></script>
+    <p id="hospital">kill me</p>
+  </body>
 </html>
