@@ -7,15 +7,16 @@
 				copyrightName: "Claire Koval",
 				copyrightYear: "2018",
 				num_places: "",
-
-				//for opentable api data
 				userZip: "",
 				result: {
-					restaurants: [{
-						name: "Loading...",
-						address: "Loading...",
-						reserve_link: "Loading..."
-					}]
+					name:"loading",
+					formatted_address:"idk",
+					geometry: {
+						location: {
+							lat:'idk',
+							lng:'idk'
+						}
+					}
 				}
 			},
 			methods: {
@@ -24,35 +25,29 @@
 					if (this.userZip === "") {
 						alert("Please enter a valid zip code");
 					}
-					let link = "https://maps.googleapis.com/maps/api/place/textsearch/xml?query=hospitals" + this.userZip + '&key=AIzaSyAtavAkD7MAfICWIMuXrRPhlnLXSK4Q2iM';
+					let link = "https://maps.googleapis.com/maps/api/place/textsearch/xml?query="+ 'hospitals' +'&key=AIzaSyBjHH561CCJ27qQ4CRfhT1SBLRBK4ueTmo';
 
 					//store userZip
 					const storedZip = localStorage.getItem(this.userZip);
 
 					//FETCH API
-					fetch(link)
-						// callback function - 2 chained callbacks total
-						.then(response => { // response property
-							if (!response.ok) { //ok property to throw an error if the response is bad
+					fetch(link, {mode: 'no-cors'})
+						.then(response => { 
+							if (!response.ok) { 
 								throw Error(`ERROR: ${response.statusText}`);
 							}
 							// if it's good, return the json got back
 							return response.json();
 						})
-						// goes to this json if everything works
 						.then(json => {
 							this.result = json;
-							this.restaurants = this.result.restaurants;
+							this.hospital = this.result;
 
-							//itterate through loop of restuarants and add marker at lat, lng
-							let r;
-							for (r = 0; r < this.result.restaurants.length; r++) {
-								var closeRestaurant = this.result.restaurants[r];
-								var lat = closeRestaurant.lat;
-								var long = closeRestaurant.lng;
-								var title = closeRestaurant.name;
-								addMarker(lat, long, title);
-							}
+							var lat = hospital.lat.geometry.location.lat;
+							var long = hospital.geometry.location.lng;
+							var title = hospital.name;
+							addMarker(lat, long, title);
+							
 
 							//add marker with title at lat and lng of restaurant
 							function addMarker(latitude, longitude, title) {
