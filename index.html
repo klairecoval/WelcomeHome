@@ -48,12 +48,8 @@
 
 		<div id="results">
 			<!--VUE components-->
-			<places-number v-bind:num_places="result.restaurants.length"></places-number>
-			<restaurant-name v-for="r in result.restaurants" v-bind:name="r.name" v-bind:address="r.address" v-bind:reserve_link="r.reserve_url" v-bind:key="r.name"></restaurant-name>
+			<!-- <restaurant-name v-for="r in result.restaurants" v-bind:name="r.name" v-bind:address="r.address" v-bind:reserve_link="r.reserve_url" v-bind:key="r.name"></restaurant-name> -->
 		</div>
-
-		<!--VUE component-->
-		<main-footer v-bind:year="copyrightYear" v-bind:name="copyrightName"></main-footer>
 
 	</div>
 
