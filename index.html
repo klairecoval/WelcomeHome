@@ -3,16 +3,12 @@
 
 <head>
 	<meta charset="utf-8" />
-	<title>FoodR</title>
-
-	<!--set icon to custon image-->
-	<link rel="icon" href="images/appIcon.png">
+	<title>Welcome Home</title>
 
 	<!--import font from google fonts-->
-	<link href="https://fonts.googleapis.com/css?family=Changa+One" rel="stylesheet">
 
 	<!--import custom css-->
-	<link rel="stylesheet" href="css/main.css"> 
+	<link rel="stylesheet" href="main.css"> 
 
 	<!--development version of vue-->
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
@@ -34,19 +30,18 @@
 
 <body>
 	<div id="root">
-		<h1 class="in-from-top">FoodR</h1>
+		<h1 class="in-from-top">Welcome Home</h1>
 
 		<!--map div-->
-		<div id="map" style="width:100%;height:400px;"></div>
+		<div id="map" style="width:50%;height:40rem;float:right;"></div>
 
 		<!--input and button-->
 		<div id="inputAndButton">
 			<br>
-			<p class="in-from-top">Enter zip code to search for a restaurant that takes reservations</p>
-			<b-input-group prepend="ZipCode">
-				<b-form-input v-b-popover.hover.top="'Enter a 5-digit zip code'" type="text" v-model="userZip"></b-form-input>
+			<b-input-group prepend="Zip Code">
+				<b-form-input type="text" v-model="userZip"></b-form-input>
 				<b-input-group-append>
-					<b-btn id="searchButton" variant="outline-success" @click=search>Search</b-btn>
+					<b-btn id="searchButton" variant="outline-success" @click=search>Go</b-btn>
 				</b-input-group-append>
 			</b-input-group>
 		</div>
@@ -62,9 +57,7 @@
 
 	</div>
 
-	<script src="js/vue-components.js"></script>
-	<script src="js/es6-test-class.js"></script>
-	<script src="js/main-vue.js"></script>
+	<script src="src/main.js"></script>
 </body>
 
 </html>
