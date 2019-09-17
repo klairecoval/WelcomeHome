@@ -21,11 +21,12 @@
       <input id="submit" type="button" value="Go">
     </div>
     <div id="map"></div>
+    <p id="hospital">kill me</p>
+
     <script>
       var map;
       var service;
       var infowindow;
-      var hospital = document.getElementById('#hospital');
 
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -33,15 +34,13 @@
           center: {lat: 40.7128, lng: -74.0060}
         });
         var geocoder = new google.maps.Geocoder();
-
-        document.getElementById('submit').addEventListener('click', function() {
-          geocodeAddress(geocoder, map);
-        });
-
         infowindow = new google.maps.InfoWindow();
 
-        var request = {
-          query: 'Museum of Modern Art',
+
+        document.getElementById('submit').addEventListener('click', function() {
+          var request = {
+          query: 'Museum of Contemporary Art Australia',
+          fields: ['name', 'geometry'],
         };
 
         service = new google.maps.places.PlacesService(map);
@@ -49,22 +48,16 @@
         service.findPlaceFromQuery(request, function(results, status) {
           if (status === google.maps.places.PlacesServiceStatus.OK) {
             for (var i = 0; i < results.length; i++) {
-              createMarker(results[i]);
-              hospital.querySelector.innerHTML = results[i].name;
+              // createMarker(results[i]);
+              var marker = new google.maps.Marker({
+                map: map,
+                position: results[i].geometry.location
+              });
+              document.getElementById("hospital").innerHTML = results[i].name;
             }
           }
         });
-      }
-
-      function createMarker(place) {
-        var marker = new google.maps.Marker({
-          map: map,
-          position: place.geometry.location
-        });
-
-        google.maps.event.addListener(marker, 'click', function() {
-          infowindow.setContent(place.name);
-          infowindow.open(map, this);
+          geocodeAddress(geocoder, map);
         });
       }
 
@@ -76,7 +69,7 @@
             var marker = new google.maps.Marker({
               map: resultsMap,
               position: results[0].geometry.location
-            });
+          });
           } else {
             alert('Geocode was not successful for the following reason: ' + status);
           }
@@ -84,6 +77,5 @@
       }
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjHH561CCJ27qQ4CRfhT1SBLRBK4ueTmo&libraries=places&callback=initMap" async defer></script>
-    <p id="hospital">kill me</p>
   </body>
 </html>
