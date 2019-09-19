@@ -75,7 +75,6 @@
     </style>
   </head>
   <body>
-    <img src =
       <div id="floating-panel">
           <input id="address" type="textbox" value="New York City, New York">
           <input id="submit" type="button" value="Go">
@@ -86,19 +85,18 @@
       <ul id="places"></ul>
       <button id="more">More results</button>
     </div>
-    <button id="dmv" value="dmv"></button>
-    <button id="groceries" value="dmv"></button>
-    <button id="hospital" value="dmv"></button>
-    <button id="clothes" value="dmv"></button>
-    <button id="publicTransport"></button>
-    <button id="postOffice"></button>
+    <button id="dmv" value="dmv" onclick="setSearch(this.id)">DMV</button>
+    <button id="grocery" value="groceries" onclick="setSearch(this.id)">Groceries</button>
+    <button id="clothing" value="clothes" onclick="setSearch(this.id)">Clothes</button>
+    <button id="transportation" value="publicTransport" onclick="setSearch(this.id)">Public Transport</button>
+    <button id="postOffice" value="postOffice" onclick="setSearch(this.id)">Post Office</button>
+    <button id="hospital" value="hospitals" onclick="setSearch(this.id)">Hospitals</button>
     <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBjHH561CCJ27qQ4CRfhT1SBLRBK4ueTmo&libraries=places&callback=initMap" async defer></script> -->
 
     <script>
         var map;
         var latitude;
         var longitude;
-        var userLoc;
 
         (function() {
           window.onload = function() {
@@ -120,14 +118,55 @@
                   map: map,
                   title: 'Your new home!'
                 });
-
-                searchMap(latitude, longitude);
               } 
             });
           }
         })();
+
+        function setSearch(clickedID) {
+          var geocoder = new google.maps.Geocoder();
+          var address = document.getElementById('address').value;
+
+            geocoder.geocode( { 'address': address}, function(results, status) {
+              if (status === google.maps.GeocoderStatus.OK) {
+                latitude = results[0].geometry.location.lat();
+                longitude = results[0].geometry.location.lng();
+                map = new google.maps.Map(document.getElementById('map'), {
+                  center: {lat: latitude, lng: longitude},
+                  zoom: 17
+                });
+
+                var marker = new google.maps.Marker({
+                  position: {lat: latitude, lng: longitude},
+                  map: map,
+                  title: 'Your new home!'
+                });
+
+                if (clickedID === 'dmv') {
+                  console.log(clickedID);
+                  searchMap(latitude, longitude, 'city_hall');
+                } else if (clickedID === 'grocery') {
+                  console.log(clickedID);
+                  searchMap(latitude, longitude, 'supermarket');
+                } else if (clickedID === 'clothing') {
+                  console.log(clickedID);
+                  searchMap(latitude, longitude, 'clothing_store');
+                } else if (clickedID === 'transportation') {
+                  console.log(clickedID);
+                  searchMap(latitude, longitude, 'bus_station');
+                } else if (clickedID === 'postOffice') {
+                  console.log(clickedID);
+                  searchMap(latitude, longitude, 'post_office');
+                } else if (clickedID === 'hospital') {
+                  console.log(clickedID);
+                  searchMap(latitude, longitude, 'hospital');
+                }
+              }
+            });
+        }
   
-        function searchMap(latitude, longitude) {  
+        function searchMap(latitude, longitude, search) {  
+          console.log(search);
           // Create the places service.
           var service = new google.maps.places.PlacesService(map);
           var getNextPage = null;
@@ -139,7 +178,7 @@
   
           // Perform a nearby search.
           service.nearbySearch(
-              {location: {lat: latitude, lng: longitude}, radius: 500, type: ['hospital']},
+              {location: {lat: latitude, lng: longitude}, radius: 500, type: [search]},
               function(results, status, pagination) {
                 if (status !== 'OK') return;
   
