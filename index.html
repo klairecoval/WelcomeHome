@@ -75,6 +75,7 @@
     </style>
   </head>
   <body>
+    <img src =
       <div id="floating-panel">
           <input id="address" type="textbox" value="New York City, New York">
           <input id="submit" type="button" value="Go">
@@ -102,8 +103,6 @@
               if (status === google.maps.GeocoderStatus.OK) {
                 latitude = results[0].geometry.location.lat();
                 longitude = results[0].geometry.location.lng();
-                console.log('lat:' + latitude);
-                console.log('long'+longitude);
                 userLoc = {lat: latitude, lng: longitude};
                 map = new google.maps.Map(document.getElementById('map'), {
                   center: {lat: latitude, lng:longitude},
