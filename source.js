@@ -271,7 +271,6 @@ var longitude;
 function setSearch(clickedID) {
     var geocoder = new google.maps.Geocoder();
     var address = document.getElementById('address').value;
-    document.getElementById(clickedID).style.backgroundColor = "rgba(97,202,61, 0.5)";
     var styledMapType = new google.maps.StyledMapType(
         [
             {
@@ -613,5 +612,4 @@ function createMarkers(places) {
 //this is made in case functionality is made for saving in the future.
 function save(){
     console.log("saved");
-    document.getElementById("save").style.backgroundColor = "rgba(97,202,61, 0.5)";
 }

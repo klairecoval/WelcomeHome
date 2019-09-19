@@ -66,7 +66,7 @@ button {
   width: 1683px;
   height: 117px;
   margin-left: -11%;
-  margin-top: 5%;
+  margin-top: 2%;
   font-family: 'Montserrat', sans-serif;
   font-style: normal;
   font-weight: bold;
@@ -81,7 +81,7 @@ button {
   width: 1155px;
   height: 58px;
   margin-left: 8.5%;
-  margin-top: 10%;
+  margin-top: 8%;
   font-size: 18px;
   line-height: 150%;
   font-family: 'Montserrat', sans-serif;
@@ -159,6 +159,10 @@ li:nth-child(odd) {
     display: none;
 }
 
+#dmv:focus, #grocery:focus, #hospital:focus, #clothing:focus, #transportation:focus, #postOffice:focus, #save:focus{
+  background-color: rgba(97,202,61, 0.5);
+}
+
 #dmv, #grocery, #hospital, #clothing, #transportation, #postOffice, #save{
   height: 60px;
   width: 60px;
@@ -207,4 +211,12 @@ li:nth-child(odd) {
 
 #save{
   margin-top: -60px;
+}
+
+#locationTag{
+  margin-left: 40%;
+  margin-top: 12%;
+  width: 300px;
+  height: 45px;
+  position: absolute;
 }
