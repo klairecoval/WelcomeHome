@@ -1,0 +1,145 @@
+      /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+       #map {
+        height: 100%;
+        z-index: 2;
+        display: block;
+      }
+      /* Optional: Makes the sample page fill the window. */
+      html, body {
+        height: 80%;
+        margin: 0;
+        padding: 0;
+      }
+
+      #startingScreen{
+        visibility: visible;
+      }
+      #search{
+        position: absolute;
+        width: 400px;
+        height: 45px;
+        left: 130px;
+        margin-top: 50%;
+        z-index: 999999;
+        background: #5A9D42;
+        font-family: 'Montserrat', sans-serif;
+        border-radius: 56px;
+      }
+
+      #search:hover{
+        background: rgb(65, 112, 48);
+      }
+
+      #input{
+        position: absolute;
+        width: 400px;
+        height: 45px;
+        left: 130px;
+        z-index: 99999;
+        margin-top: 45%;
+      }
+
+      #startScreen{
+        visibility: visible;
+        z-index: 100;
+        width: 100%;
+        height: 100%;
+        display: block;
+        position: absolute;
+      }
+
+      #right-panel select, #right-panel input {
+        font-size: 15px;
+      }
+
+      #right-panel select {
+        width: 100%;
+      }
+
+      #right-panel i {
+        font-size: 12px;
+      }
+      #right-panel {
+        font-family: Arial, Helvetica, sans-serif;
+        position: absolute;
+        right: 5px;
+        top: 60%;
+        margin-top: -195px;
+        height: 330px;
+        width: 200px;
+        padding: 5px;
+        border: 1px solid #999;
+        background: #fff;
+        font-family: 'Roboto','sans-serif';
+        line-height: 30px;
+        padding-left: 10px;
+        z-index: 4;
+        display: block;
+        position: absolute;
+
+      }
+      h2 {
+        font-size: 22px;
+        margin: 0 0 5px 0;
+      }
+      ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        height: 271px;
+        width: 200px;
+        overflow-y: scroll;
+      }
+      li {
+        background-color: #f1f1f1;
+        padding: 10px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+      }
+      #subtitle{
+        position: absolute;
+        width: 500px;
+        height: 100px;
+        left: 130px;
+        top: 350px;
+        z-index: 999999;
+
+        font-family: 'Montserrat', sans-serif;
+        font-size: 25px;
+        line-height: 150%;
+        /* or 52px */
+
+        letter-spacing: -0.005em;
+
+        color: #5E5E5E;
+
+      }
+
+      #title{
+        position: absolute;
+        width: 700px;
+        height: 300px;
+        left: 120px;
+        margin-top: 5%;
+
+        font-family: 'Montserrat', sans-serif;
+        font-style: normal;
+        font-weight: 800;
+        font-size: 90px;
+        z-index: 999999;
+
+        letter-spacing: -0.005em;
+
+        color: #1A1A1A;
+      }
+
+      li:nth-child(odd) {
+        background-color: #fcfcfc;
+      }
+
+      #more {
+        width: 100%;
+        margin: 5px 0 0 0;
+      }
