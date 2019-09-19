@@ -155,55 +155,52 @@ li:nth-child(odd) {
     display: none;
 }
 
-
 #dmv, #grocery, #hospital, #clothing, #transportation, #postOffice, #save{
-  height: 40px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
   background-color: transparent;
   border:none;
-  margin-left: 2%;
+  margin-left: 1.5%;
+  align-content: center;
   background-repeat:no-repeat;
+  position: absolute;
+  outline:none;
+  border-radius: 12px;
+  padding:3px;
+}
+
+#dmv{
+  margin-top: -540px;
+}
+
+#grocery{
+  margin-top: -460px;
+}
+
+#hospital{
+  margin-top: -380px;
+  
+}
+
+#clothing{
+  margin-top: -300px;
+}
+
+#transportation{
+  margin-top: -220px;
+}
+
+#postOffice{
+  margin-top: -140px;
+}
+
+#line{
+  margin-top: -75px;
+  margin-left: 7px;
   position: absolute;
   outline:none;
 }
 
-#dmv{
-  margin-top: -530px;
-  background-image:url("media/dmv.png");
-}
-
-#grocery{
-  margin-top: -450px;
-  background-image:url("media/groceries.png");
-}
-
-#hospital{
-  margin-top: -370px;
-  background-image:url("media/hospitals.png");
-  margin-left: 1.5%;
-}
-
-#clothing{
-  margin-top: -290px;
-  background-image:url("media/clothes.png");
-  height: 50px;
-  width: 55px;
-  margin-left: 1.5%;
-}
-
-#transportation{
-  margin-top: -210px;
-  background-image:url("media/transportation.png");
-  height: 50px;
-}
-
-#postOffice{
-  margin-top: -130px;
-  background-image:url("media/postoffice.png");
-  margin-left: 1.8%;
-}
-
 #save{
   margin-top: -60px;
-  background-image:url("media/save.png")
 }
