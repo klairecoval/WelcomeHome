@@ -245,14 +245,15 @@ var longitude;
 
         });
 
-                //Associate the styled map with the MapTypeId and set it to display.
-                map.mapTypes.set('styled_map', styledMapType);
-                map.setMapTypeId('styled_map');
+        //Associate the styled map with the MapTypeId and set it to display.
+        map.mapTypes.set('styled_map', styledMapType);
+        map.setMapTypeId('styled_map');
 
         var marker = new google.maps.Marker({
             position: {lat: latitude, lng: longitude},
             map: map,
-            title: 'Your new home!'
+            title: 'Your new home!',
+            // icon: '/media/Exclude.png'
         });
         } 
     });
@@ -560,26 +561,33 @@ function createMarkers(places) {
     var placesList = document.getElementById('places');
 
     for (var i = 0, place; place = places[i]; i++) {
-    var image = {
-        url: place.icon,
-        size: new google.maps.Size(71, 71),
-        origin: new google.maps.Point(0, 0),
-        anchor: new google.maps.Point(17, 34),
-        scaledSize: new google.maps.Size(25, 25)
-    };
+        var image = {
+            url: '/media/Exclude.png',
+            size: new google.maps.Size(60, 71),
+            origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(17, 34),
+            scaledSize: new google.maps.Size(18, 25)
+        };
 
-    var marker = new google.maps.Marker({
-        map: map,
-        icon: image,
-        title: place.name,
-        position: place.geometry.location
-    });
+        // var infowindow = new google.maps.InfoWindow({
+        //     content: place.name
+        // });
 
-    var li = document.createElement('li');
-    li.textContent = place.name;
-    placesList.appendChild(li);
+        var marker = new google.maps.Marker({
+            map: map,
+            icon: image,
+            title: place.name,
+            position: place.geometry.location
+        });
+        // marker.addListener('click', function() {
+        //     infowindow.open(map, marker);
+        // });
 
-    bounds.extend(place.geometry.location);
+        var li = document.createElement('li');
+        li.textContent = place.name;
+        placesList.appendChild(li);
+
+        bounds.extend(place.geometry.location);
     }
     map.fitBounds(bounds);
 }
