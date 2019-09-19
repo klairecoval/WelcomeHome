@@ -1,202 +1,128 @@
-      /* Always set the map height explicitly to define the size of the div
-       * element that contains the map. */
-       #map {
-        height: 110%;
-        width: 90%;
-        z-index: 2;
-        display: block;
-        margin-top: 15%;
-        margin-left: 8%;
-      }
-      /* Optional: Makes the sample page fill the window. */
-      html, body {
-        height: 80%;
-        margin: 0;
-        padding: 0;
-      }
+/* Always set the map height explicitly to define the size of the div
+* element that contains the map. */
+#map {
+    height: 110%;
+    width: 100%;
+    z-index: 2;
+    display: block;
+    margin-top: 15%;
+    margin-left: 8%;
+}
+/* Optional: Makes the sample page fill the window. */
+html, body {
+    height: 80%;
+    margin: 0;
+    padding: 0;
+}
 
-      #floating-panel{
-        visibility: hidden;
-      }
+#floating-panel{
+    visibility: hidden;
+}
 
-      #startingScreen{
-        visibility: visible;
-      }
+#startingScreen{
+    visibility: visible;
+}
 
-      #search{
-        position: absolute;
-        width: 400px;
-        height: 45px;
-        left: 130px;
-        margin-top: 50%;
-        z-index: 999999;
-        background: #5A9D42;
-        font-family: 'Montserrat', sans-serif;
-        border-radius: 56px;
-      }
+#search{
+    position: absolute;
+    width: 400px;
+    height: 45px;
+    left: 130px;
+    margin-top: 50%;
+    z-index: 999999;
+    background: #5A9D42;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 56px;
+}
 
-      #search:hover{
-        background: rgb(65, 112, 48);
-      }
+#search:hover{
+    background: rgb(65, 112, 48);
+}
 
-      #input{
-        position: absolute;
-        width: 400px;
-        height: 45px;
-        left: 130px;
-        z-index: 99999;
-        margin-top: 45%;
-      }
+#input{
+    position: absolute;
+    width: 400px;
+    height: 45px;
+    left: 130px;
+    z-index: 99999;
+    margin-top: 45%;
+}
 
-      #startScreen{
-        visibility: visible;
-        z-index: 100;
-        width: 100%;
-        height: 100%;
-        display: block;
-        position: absolute;
-      }
-     
-      h2 {
-        font-size: 22px;
-        margin: 0 0 5px 0;
-      }
+#startScreen{
+    visibility: visible;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+    display: block;
+    position: absolute;
+}
 
-      ul {
-        list-style-type: none;
-        padding: 0;
-        margin: 0;
-        height: 271px;
-        width: 200px;
-        overflow-y: scroll;
-      }
 
-      li {
-        background-color: #f1f1f1;
-        padding: 10px;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-      }
+h2 {
+    font-size: 22px;
+    margin: 0 0 5px 0;
+}
 
-      #mainTitle{
-        position: absolute;
-        width: 1683px;
-        height: 117px;
-        margin-left: -11%;
-        margin-top: 5%;
-        font-family: 'Montserrat', sans-serif;
-        font-style: normal;
-        font-weight: bold;
-        font-size: 45px;
-        text-align: center;
-        letter-spacing: -0.005em;
-        color: #1A1A1A;
-      }
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    height: 271px;
+    width: 200px;
+    overflow-y: scroll;
+}
 
-      #mainSubtitle{
-        position: absolute;
-        width: 1155px;
-        height: 58px;
-        margin-left: 8.5%;
-        margin-top: 10%;
-        font-size: 18px;
-        line-height: 150%;
-        font-family: 'Montserrat', sans-serif;
-        text-align: center;
-        letter-spacing: -0.005em;
-        color: #5E5E5E;
-      }
+li {
+    background-color: #f1f1f1;
+    padding: 10px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
 
-      #subtitle{
-        position: absolute;
-        width: 500px;
-        height: 100px;
-        left: 130px;
-        top: 350px;
-        z-index: 999999;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 25px;
-        letter-spacing: -0.005em;
-        color: #5E5E5E;
-      }
+#subtitle{
+    position: absolute;
+    width: 500px;
+    height: 100px;
+    left: 130px;
+    top: 350px;
+    z-index: 999999;
 
-      #title{
-        position: absolute;
-        width: 700px;
-        height: 300px;
-        left: 120px;
-        margin-top: 5%;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 25px;
+    line-height: 150%;
+    letter-spacing: -0.005em;
 
-        font-family: 'Montserrat', sans-serif;
-        font-style: normal;
-        font-weight: 800;
-        font-size: 90px;
-        z-index: 999999;
-        letter-spacing: -0.005em;
-        color: #1A1A1A;
-      }
+    color: #5E5E5E;
+}
 
-      li:nth-child(odd) {
-        background-color: #fcfcfc;
-      }
+#title{
+    position: absolute;
+    width: 700px;
+    height: 300px;
+    left: 120px;
+    margin-top: 5%;
 
-      #more {
-        width: 100%;
-        margin: 5px 0 0 0;
-      }
-      
-      #dmv, #grocery, #hospital, #clothing, #transportation, #postOffice, #save{
-        height: 40px;
-        width: 50px;
-        background-color: transparent;
-        border:none;
-        margin-left: 2%;
-        background-repeat:no-repeat;
-        position: absolute;
-        outline:none;
-      }
+    font-family: 'Montserrat', sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    font-size: 90px;
+    z-index: 999999;
 
-      #dmv{
-        margin-top: -530px;
-        background-image:url("media/dmv.png");
-      }
+    letter-spacing: -0.005em;
 
-      #grocery{
-        margin-top: -450px;
-        background-image:url("media/groceries.png");
-      }
+    color: #1A1A1A;
+}
 
-      #hospital{
-        margin-top: -370px;
-        background-image:url("media/hospitals.png");
-        margin-left: 1.5%;
-      }
+li:nth-child(odd) {
+    background-color: #fcfcfc;
+}
 
-      #clothing{
-        margin-top: -290px;
-        background-image:url("media/clothes.png");
-        height: 50px;
-        width: 55px;
-        margin-left: 1.5%;
-      }
+#more {
+    width: 100%;
+    margin: 5px 0 0 0;
+}
 
-      #transportation{
-        margin-top: -210px;
-        background-image:url("media/transportation.png");
-        height: 50px;
-      }
-
-      #postOffice{
-        margin-top: -130px;
-        background-image:url("media/postoffice.png");
-        margin-left: 1.8%;
-      }
-
-      #save{
-        margin-top: -60px;
-        background-image:url("media/save.png")
-      }
 
 
 #right-panel {
