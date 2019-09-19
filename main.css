@@ -1,9 +1,12 @@
       /* Always set the map height explicitly to define the size of the div
        * element that contains the map. */
        #map {
-        height: 100%;
+        height: 110%;
+        width: 100%;
         z-index: 2;
         display: block;
+        margin-top: 15%;
+        margin-left: 8%;
       }
       /* Optional: Makes the sample page fill the window. */
       html, body {
@@ -12,9 +15,14 @@
         padding: 0;
       }
 
+      #floating-panel{
+        visibility: hidden;
+      }
+
       #startingScreen{
         visibility: visible;
       }
+
       #search{
         position: absolute;
         width: 400px;
@@ -49,40 +57,12 @@
         position: absolute;
       }
 
-      #right-panel select, #right-panel input {
-        font-size: 15px;
-      }
-
-      #right-panel select {
-        width: 100%;
-      }
-
-      #right-panel i {
-        font-size: 12px;
-      }
-      #right-panel {
-        font-family: Arial, Helvetica, sans-serif;
-        position: absolute;
-        right: 5px;
-        top: 60%;
-        margin-top: -195px;
-        height: 330px;
-        width: 200px;
-        padding: 5px;
-        border: 1px solid #999;
-        background: #fff;
-        font-family: 'Roboto','sans-serif';
-        line-height: 30px;
-        padding-left: 10px;
-        z-index: 4;
-        display: block;
-        position: absolute;
-
-      }
+     
       h2 {
         font-size: 22px;
         margin: 0 0 5px 0;
       }
+
       ul {
         list-style-type: none;
         padding: 0;
@@ -91,6 +71,7 @@
         width: 200px;
         overflow-y: scroll;
       }
+
       li {
         background-color: #f1f1f1;
         padding: 10px;
@@ -98,6 +79,7 @@
         white-space: nowrap;
         overflow: hidden;
       }
+
       #subtitle{
         position: absolute;
         width: 500px;
