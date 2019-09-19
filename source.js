@@ -240,7 +240,9 @@ var longitude;
             mapTypeControlOptions: {
                 mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
                         'styled_map']
-              }
+              },
+              disableDefaultUI: true
+
         });
 
                 //Associate the styled map with the MapTypeId and set it to display.
@@ -494,7 +496,9 @@ function setSearch(clickedID) {
             mapTypeControlOptions: {
                 mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
                         'styled_map']
-              }
+              },
+              disableDefaultUI: true
+
         });
                 //Associate the styled map with the MapTypeId and set it to display.
                 map.mapTypes.set('styled_map', styledMapType);
