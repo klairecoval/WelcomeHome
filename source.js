@@ -592,8 +592,3 @@ function createMarkers(places) {
     }
     map.fitBounds(bounds);
 }
-
-//this is made in case functionality is made for saving in the future.
-function save(){
-    console.log("saved");
-}

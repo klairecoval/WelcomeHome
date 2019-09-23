@@ -7,12 +7,14 @@
     display: block;
     margin-top: 15%;
     margin-left: 8%;
+    position: absolute;
 }
 /* Optional: Makes the sample page fill the window. */
 html, body {
     height: 80%;
     margin: 0;
     padding: 0;
+    overflow: hidden;
 }
 
 #floating-panel{
@@ -52,9 +54,23 @@ html, body {
     visibility: visible;
     z-index: 100;
     width: 100%;
-    height: 100%;
+    height: 110%;
     display: block;
     position: absolute;
+}
+
+#saveScreen{
+  visibility: hidden;
+  z-index: 9999999;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
+
+#exit{
+  visibility: hidden;
 }
 
 #mainTitle{
@@ -174,39 +190,39 @@ li:nth-child(odd) {
 }
 
 #dmv{
-  margin-top: -540px;
+  margin-top: 180px;
 }
 
 #grocery{
-  margin-top: -460px;
+  margin-top: 260px;
 }
 
 #hospital{
-  margin-top: -380px;
+  margin-top: 340px;
   
 }
 
 #clothing{
-  margin-top: -300px;
+  margin-top: 420px;
 }
 
 #transportation{
-  margin-top: -220px;
+  margin-top: 500px;
 }
 
 #postOffice{
-  margin-top: -140px;
+  margin-top: 575px;
 }
 
 #line{
-  margin-top: -75px;
+  margin-top: 650px;
   margin-left: 7px;
   position: absolute;
   outline:none;
 }
 
 #save{
-  margin-top: -60px;
+  margin-top: 660px;
 }
 
 #locationTag{
