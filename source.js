@@ -249,11 +249,19 @@ var longitude;
         map.mapTypes.set('styled_map', styledMapType);
         map.setMapTypeId('styled_map');
 
+        var userIcon = {
+            url: 'media/locator.png',
+            size: new google.maps.Size(60, 71),
+            // origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(20, 20),
+            scaledSize: new google.maps.Size(40, 40)
+        };
+
         var marker = new google.maps.Marker({
             position: {lat: latitude, lng: longitude},
             map: map,
             title: 'Your new home!',
-            // icon: '/media/Exclude.png'
+            icon: userIcon
         });
         } 
     });
@@ -501,14 +509,23 @@ function setSearch(clickedID) {
               disableDefaultUI: true
 
         });
-                //Associate the styled map with the MapTypeId and set it to display.
-                map.mapTypes.set('styled_map', styledMapType);
-                map.setMapTypeId('styled_map');
+        //Associate the styled map with the MapTypeId and set it to display.
+        map.mapTypes.set('styled_map', styledMapType);
+        map.setMapTypeId('styled_map');
+
+        var userIcon = {
+            url: 'media/locator.png',
+            size: new google.maps.Size(60, 71),
+            // origin: new google.maps.Point(0, 0),
+            anchor: new google.maps.Point(20, 20),
+            scaledSize: new google.maps.Size(40, 40)
+        };
 
         var marker = new google.maps.Marker({
             position: {lat: latitude, lng: longitude},
             map: map,
-            title: 'Your new home!'
+            title: 'Your new home!',
+            icon: userIcon
         });
 
         if (clickedID === 'dmv') {
@@ -532,7 +549,7 @@ function setSearch(clickedID) {
         }
         }
     });
-    }
+}
 
 function hideScreen(){
     this.document.getElementById("startingScreen").style.visibility = "hidden";
@@ -547,8 +564,7 @@ function searchMap(latitude, longitude, search) {
 
 
     // Perform a nearby search.
-    service.nearbySearch(
-        {location: {lat: latitude, lng: longitude}, radius: 500, type: [search]},
+    service.nearbySearch({location: {lat: latitude, lng: longitude}, radius: 500, type: [search]},
         function(results, status, pagination) {
         if (status !== 'OK') return;
 
